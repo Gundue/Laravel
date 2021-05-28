@@ -16,30 +16,50 @@
     </style>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        })
         function register() {
-            let id = document.getElementById('id').value;
-            let pw = document.getElementById('password').value;
-
-            let email = document.getElementById('email').value;
-            let domain = document.getElementById('domain').value;
+            let form = $('#fm')
+            let request = new FormData(form[0])
+            let id = $('#id').val()
+            let email = $('#email').val()
+            let domain = $('#domain').val()
+            let pw = $('#password').val()
+            let c_pw = $('#c_password').val()
         
             let mail = email+'@'+domain
-
-            console.log(mail)
+            request.append('id', id)
+            request.append('email', mail)
 
             var re = /^[a-zA-Z0-9]{8,12}$/;
 
             if(!re.exec(id)) {
-                return false
+                alert('다시 입력해주세요');
+                return false;
+                $('#id').focus()
             } 
+            if(pw != c_pw) {
+                alert('비밀번호 불일치');
+                return false
+            }
             
+            // function idCheck(id) {
+            //     $.ajax({
+            //         type:"post",
+            //         url: "/register",
+            //         data : {id : }
+            //     })
+            // }
+
             $.ajax({
-                headers: {
-                     'X-Requested-With': 'XMLHttpRequest', 'X-CSRF-TOKEN': $('meta[name=X-CSRF-TOKEN]')
-                },
                 url: "/register/validate",
                 type: "post",
-                datatype: "json",
+                data: request,
+                contentType: false,
+                processData: false,
                 success: (response) => {
                     alert("성공")
                 },
