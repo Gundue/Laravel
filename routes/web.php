@@ -25,4 +25,4 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::post('/register/validate', 'App\Http\Controllers\MainController@register');
+Route::post('/register/validate', 'App\Http\Controllers\RegisterController@register');
