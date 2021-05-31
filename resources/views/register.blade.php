@@ -4,13 +4,16 @@
     <form action="javascript:register()" method="post" id="fm">
         @csrf
         @include('layout.input', [
-            'filed' => 'id'
+            'filed' => 'id',
+            'focus' => 'autofocus'
         ])
         @include('layout.input',[
-            'filed' => 'password'
+            'filed' => 'password',
+            'type' => 'password'
         ])
         @include('layout.input',[
-            'filed' => 'c_password'
+            'filed' => 'c_password',
+            'type' => 'password'
         ])
         @include('layout.email',[
             'filed' => 'email'

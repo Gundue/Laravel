@@ -38,21 +38,14 @@
 
             if(!re.exec(id)) {
                 alert('다시 입력해주세요');
-                return false;
                 $('#id').focus()
+                return false;
             } 
             if(pw != c_pw) {
                 alert('비밀번호 불일치');
+                $('#password').focus()
                 return false
             }
-            
-            // function idCheck(id) {
-            //     $.ajax({
-            //         type:"post",
-            //         url: "/register",
-            //         data : {id : }
-            //     })
-            // }
 
             $.ajax({
                 url: "/register/validate",
