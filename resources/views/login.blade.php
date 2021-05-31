@@ -6,9 +6,10 @@
         'filed' => 'id'
         ])
         @include('layout.input', [
-            'filed' => 'password'
+            'filed' => 'password',
+            'type' => 'password'
         ])
         <input type="submit" value="@lang('button.submit')">
-        <button><a href="/register">회원가입</a></button>
+        <a href="/register">회원가입</a>
     </form>
 @endsection
