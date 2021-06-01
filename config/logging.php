@@ -49,9 +49,9 @@ return [
 
         'daily' => [
             'driver' => 'daily',
-            'path' => storage_path('logs/laravel.log'),
-            'level' => env('LOG_LEVEL', 'debug'),
-            'days' => 14,
+            'path' => storage_path('logs/laravel_daliy.log'),
+            'level' => 'debug',
+            'days' => 1,
         ],
 
         'slack' => [

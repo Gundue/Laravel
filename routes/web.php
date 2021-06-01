@@ -26,3 +26,6 @@ Route::get('/register', function () {
 });
 
 Route::post('/register/validate', 'App\Http\Controllers\RegisterController@register');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
