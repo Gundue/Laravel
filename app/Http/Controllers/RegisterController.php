@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\User;
 
 
-Class MainController extends Controller
+Class RegisterController extends Controller
 {
     public function register(Request $request) {
 
@@ -17,7 +17,6 @@ Class MainController extends Controller
             'user_pw' => $request->input('password', 'password'),
             'email' => $request->input('email', 'email')
         ]);
-        
-        return view('index');
+        return redirect( '');
     }
 }

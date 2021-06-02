@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+// use App\Http\Controllers;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,14 +21,24 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('auth.login');
 });
 
 Route::get('/register', function () {
-    return view('register');
+    return view('auth.register');
 });
 
-Route::post('/register/validate', 'App\Http\Controllers\RegisterController@register');
-Auth::routes();
+Route::get('/Auth', function () {
+    return view('Auth');
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/Ranking', function () {
+    return view('Ranking');
+});
+Route::post('/login/validate', 'App\Http\Controllers\LoginController@login');
+
+Route::get('/Challenge', 'App\Http\Controllers\ChallengeController@question');
+
+Route::post('/register/validate', 'App\Http\Controllers\RegisterController@register');
+
+                                                        

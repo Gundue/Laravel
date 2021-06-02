@@ -1,13 +1,16 @@
-<?
+<?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-user Illuminate\Foundation\Auth\AuthenticateUsers;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+use App\User;
 
 Class LoginController extends Controller
 {
-    $users = User::table('users')->select('user_id')->get();
+    public function login() {
+
+        return view('Ranking');
+    }
 }
