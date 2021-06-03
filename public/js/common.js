@@ -14,7 +14,6 @@ function register() {
     let c_pw = $('#c_password').val()
 
     let mail = email+'@'+domain
-    request.append('id', id)
     request.append('email', mail)
 
     var re = /^[a-zA-Z0-9]{8,12}$/;
@@ -31,7 +30,7 @@ function register() {
     }
 
     $.ajax({
-        url: "/register/validate",
+        url: "/register",
         type: "post",
         data: request,
         contentType: false,
@@ -48,10 +47,13 @@ function register() {
 function login() {
 
     let form = $('#lform')
+    let id = $('#id').val()
     let request = new FormData(form[0])
-    
+    request.delete('id')
+    request.append('user_id', id)
+
     $.ajax({
-        url: "/login/validate",
+        url: "/login",
         type: "post",
         data: request,
         contentType: false,

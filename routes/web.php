@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-// use App\Http\Controllers;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ChallengeController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\GloginController;
 
 
 /*
@@ -18,15 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
-
-Route::get('/login', function () {
-    return view('auth.login');
-});
-
-Route::get('/register', function () {
-    return view('auth.register');
-});
+}) -> name('main');
 
 Route::get('/Auth', function () {
     return view('Auth');
@@ -35,10 +30,13 @@ Route::get('/Auth', function () {
 Route::get('/Ranking', function () {
     return view('Ranking');
 });
-Route::post('/login/validate', 'App\Http\Controllers\LoginController@login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::get('/login', [LoginController::class, 'index']);
 
-Route::get('/Challenge', 'App\Http\Controllers\ChallengeController@question');
+Route::get('/Challenge', [ChallengeController::class, 'question']);
 
-Route::post('/register/validate', 'App\Http\Controllers\RegisterController@register');
-
+Route::post('/register', [RegisterController::class, 'register']);
+Route::get('/register', [RegisterController::class, 'index']);
                                                         
+Route::get('/auth/login/google', [GloginController::class, 'redirectToProvider']);
+Route::get('/auth/login/google/callback', [GloginController::class, 'handleProviderCallback']);

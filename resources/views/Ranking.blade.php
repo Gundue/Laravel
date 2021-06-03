@@ -6,7 +6,7 @@
             <td>Rank</td>
         </tr>
         <tr>
-            <td>1</td>
+            <td>{{ $users['0']->idx ?? '' }}</td>
         </tr>
     </table>
 @endsection

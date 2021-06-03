@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <div class="menu">
-            <div class="logo"><img src="images/logo.png" alt=""></div>
+            {{-- <div class="logo"><img src="images/logo.png" alt=""></div> --}}
             <div class="ul">
                 <li><a href="/">Index</a></li>
                 <li><a href="/Challenge">Challenge</a></li>

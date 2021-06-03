@@ -5,12 +5,34 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 Class LoginController extends Controller
 {
-    public function login() {
+    public function index() 
+    {
+        return view('auth.login');
+    }
 
-        return view('Ranking');
+    public function login(Request $request) 
+    {
+        $validation = $request -> validate([
+            'user_id' => 'required',
+            'password' => 'required'
+        ]);
+
+        if(Auth::attempt($validation)) {
+            return redirect()->route('main');
+        } else {
+            return redirect()->back(); 
+        }
+    }
+    public function logout() {
+        Auth::logout();
+
+        return redirect()->route('main');
     }
 }
