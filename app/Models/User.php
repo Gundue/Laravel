@@ -15,5 +15,3 @@ Class User extends Authenticatable
     protected $guarded = [];
 
 }
-
-?>

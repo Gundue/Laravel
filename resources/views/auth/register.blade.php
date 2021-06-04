@@ -1,7 +1,7 @@
 @extends('layout.default')
 
 @section('main')
-    <form action="/register/validate" id="fm" method>
+    <form action="javascript:register()" id="fm" method="post">
         @csrf
         @include('layout.input', [
             'filed' => 'id',
