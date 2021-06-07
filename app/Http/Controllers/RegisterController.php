@@ -19,7 +19,8 @@ Class RegisterController extends Controller
         $user = User::create([
             'user_id' => $request->input('id', 'id'),
             'user_pw' => $request->input('password', 'password'),
-            'email' => $request->input('email', null)
+            'email' => $request->input('email', null),
+            'google_id' => null
         ]);
     }
 }

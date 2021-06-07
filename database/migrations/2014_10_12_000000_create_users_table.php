@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table -> String('user_id')->nullable();
             $table -> String('user_pw')->nullable();
             $table -> String('email')->nullable();
+            $table-> String('google_id')->nullable();
             $table -> timestamps();
         });
     }

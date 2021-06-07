@@ -15,7 +15,7 @@ class GloginController extends Controller
     }
 
     public function handleProviderCallback() {
-        // try {
+
             $user = Socialite::driver('google') -> stateless() -> user();
             $findUser = User::where('google_id', $user->id) ->first();
             if ($findUser) {
@@ -30,9 +30,6 @@ class GloginController extends Controller
                 Auth::login($newUser);
                 return redirect() -> route('main');
             }
-        // } catch (\Exception $e) {
-        //     return redirect('/login');
-        // }
     }
 
     public function logout() {

@@ -6,18 +6,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\GloginController;
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\UploadController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('index');
@@ -30,10 +20,34 @@ Route::get('/Auth', function () {
 Route::get('/Ranking', function () {
     return view('Ranking');
 });
+
+Route::get('/Challenge/rev', function() {
+    return view('track.rev');
+});
+Route::get('/Challenge/misc', function() {
+    return view('track.misc');
+});
+Route::get('/Challenge/web', function() {
+    return view('track.web');
+});
+
+Route::post('/Challenge/upload',[UploadController::class, 'upload']);
+
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/login', [LoginController::class, 'index']);
 
-Route::get('/Challenge', [ChallengeController::class, 'question']);
+Route::get('/Challenge/pwn', function() {
+    return view('track.pwn');
+});
+Route::get('/Challenge/pwn', [ChallengeController::class, 'PwnQuestion']);
+Route::get('/Challenge/rev', [ChallengeController::class, 'RevQuestion']);
+Route::get('/Challenge/misc', [ChallengeController::class, 'MiscQuestion']);
+Route::get('/Challenge/web', [ChallengeController::class, 'WebQuestion']);
+Route::get('/Challenge', function() {
+    return view('Challenge');
+});
+
+Route::post('/Auth', [AuthController::class, 'update']);
 
 Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/register', [RegisterController::class, 'index']);
