@@ -25,9 +25,9 @@ Class LoginController extends Controller
         ]);
 
         if(Auth::attempt($validation)) {
-            return redirect()->route('main');
-        } else {
             return redirect()->back(); 
+        } else {
+            return view('index');
         }
     }
     public function logout() {

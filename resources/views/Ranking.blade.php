@@ -1,12 +1,13 @@
 @extends('layout.default')
 
 @section('main')
-    <table>
+    <table border="1">
+        <h1>Rank</h1>
+        @foreach ($orderBy as $row)
         <tr>
-            <td>Rank</td>
+            <td>{{ $row->user_id }}</td>
+            <td>{{ $row->point }}</td>
         </tr>
-        <tr>
-            <td>{{ $users['0']->idx ?? '' }}</td>
-        </tr>
+        @endforeach
     </table>
 @endsection

@@ -12,6 +12,7 @@ Class User extends Authenticatable
     protected $primaryKey = 'idx';
 
     protected $fillable = ['user_id', 'user_pw', 'email', 'google_id'];
-    protected $guarded = [];
+    protected $guarded = ['user_id'];
+    protected $hidden = ['user_pw'];
 
 }

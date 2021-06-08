@@ -4,10 +4,11 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ChallengeController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\GloginController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RankingController;
 
 Route::get('/', function () {
     return view('index');
@@ -17,9 +18,7 @@ Route::get('/Auth', function () {
     return view('Auth');
 });
 
-Route::get('/Ranking', function () {
-    return view('Ranking');
-});
+Route::get('/Ranking', [RankingController::class, 'rank']);
 
 Route::get('/Challenge/rev', function() {
     return view('track.rev');
@@ -49,8 +48,15 @@ Route::get('/Challenge', function() {
 
 Route::post('/Auth', [AuthController::class, 'update']);
 
-Route::post('/register', [RegisterController::class, 'register']);
+Route::post('/register', [RegisterController::class, 'create']);
 Route::get('/register', [RegisterController::class, 'index']);
                                                         
 Route::get('/auth/login/google', [GloginController::class, 'redirectToProvider']);
 Route::get('/auth/login/google/callback', [GloginController::class, 'handleProviderCallback']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/password/reset', function(){
+    return view('auth.passwords.reset');
+});

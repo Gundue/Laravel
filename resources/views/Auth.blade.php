@@ -10,3 +10,4 @@
     <input type="submit" value="@lang('button.submit')">
 </form>
 @endsection
+
