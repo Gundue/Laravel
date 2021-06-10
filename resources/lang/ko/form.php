@@ -28,7 +28,5 @@ return [
     'p_url' => [
         'label' => '문제 url'
     ],
-    'name' => [
-        'label' => '이름'
-    ],
-    ];
+
+];

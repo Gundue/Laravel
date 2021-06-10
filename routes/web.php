@@ -13,13 +13,9 @@ use App\Http\Controllers\RankingController;
 Route::get('/', function () {
     return view('index');
 }) -> name('main');
-
 Route::get('/Auth', function () {
     return view('Auth');
 });
-
-Route::get('/Ranking', [RankingController::class, 'rank']);
-
 Route::get('/Challenge/rev', function() {
     return view('track.rev');
 });
@@ -29,7 +25,7 @@ Route::get('/Challenge/misc', function() {
 Route::get('/Challenge/web', function() {
     return view('track.web');
 });
-
+Route::get('/Ranking', [RankingController::class, 'rank']);
 Route::post('/Challenge/upload',[UploadController::class, 'upload']);
 
 Route::post('/login', [LoginController::class, 'login']);
