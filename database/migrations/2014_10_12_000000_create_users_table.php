@@ -15,11 +15,11 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table -> bigIncrements('idx');
-            $table -> String('name') -> comment('이름')->nullable();
-            $table -> String('user_id')->unique()->comment('아이디')->nullable();
+            $table -> String('name') -> comment('이름');
+            $table -> String('user_id')->unique()->comment('아이디');
             $table -> String('user_level')->comment('권한')->default('1');
-            $table -> String('user_pw')->comment('비밀번호')->nullable();
-            $table -> String('email')->unique()->comment('이메일') ->nullable();
+            $table -> String('user_pw')->comment('비밀번호');
+            $table -> String('email')->unique()->comment('이메일');
             $table-> String('google_id')->nullable();
             $table -> String('point') -> nullable();
             $table -> rememberToken();
