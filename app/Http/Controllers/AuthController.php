@@ -15,9 +15,14 @@ class AuthController extends Controller
         $input = $request-> input('flag');
         $check = Problem::select('*')->where('flag', '=', $input) -> count();
 
-        if($check == '0') {
-            return view('index');        
+        if($check == 1) {
+            $check = Problem::select('*')->where('flag', '=', $input) -> first();
+            $point = $check->point;
+            DB::table('users')->where('idx', 1)->update(['point' => 'point' + $point]);
+            // update users set point = point + 50 where idx = 1
+            return view('Challenge');
         } else {
+            return view('index');
         }            
     }
 }

@@ -5,7 +5,7 @@
 <form action="/Auth" method="post" style="display: flex">
     @csrf
     @include('layout.input', [
-            'filed' => 'flag'
+            'field' => 'flag'
         ])
     <input type="submit" value="@lang('button.submit')">
 </form>

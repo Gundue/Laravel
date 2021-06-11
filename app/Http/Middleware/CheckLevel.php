@@ -14,7 +14,7 @@ class CheckLevel
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, $role)
     {
         switch ($role) {
             case 'admin' :

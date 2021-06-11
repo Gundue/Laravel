@@ -6,9 +6,20 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Models\Problem;
+use App\Models\User;
 
 Class ChallengeController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('level');
+    // }
+
+    public function index()
+    {
+        return view('index');
+    }
+
     public function PwnQuestion()
     {           
         $problem = Problem::select('*')->where('track', '=', 'pwn')->get();

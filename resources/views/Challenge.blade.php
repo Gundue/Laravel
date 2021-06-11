@@ -4,7 +4,7 @@
     <form action="/Challenge/upload" id="" method="post" enctype="multipart/form-data">
         @csrf
         @include('layout.input', [
-            'filed' => 'p_name',
+            'field' => 'p_name',
             'focus' => 'autofocus'
         ])
         <select name="track">
@@ -15,18 +15,18 @@
             <option value="web">web</option>
         </select>
         @include('layout.input', [
-            'filed' => 'file',
+            'field' => 'file',
             'type' => 'file'
         ])
         @include('layout.input', [
-            'filed' => 'p_url',
+            'field' => 'p_url',
         ])
         @include('layout.input', [
-            'filed' => 'point',
+            'field' => 'point',
             'type' => 'number'
         ])
         @include('layout.input', [
-            'filed' => 'flag',
+            'field' => 'flag',
         ])
         <input type="submit" value="@lang('button.submit')">
     </form>

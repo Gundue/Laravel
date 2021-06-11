@@ -38,9 +38,7 @@ Route::get('/Challenge/pwn', [ChallengeController::class, 'PwnQuestion']);
 Route::get('/Challenge/rev', [ChallengeController::class, 'RevQuestion']);
 Route::get('/Challenge/misc', [ChallengeController::class, 'MiscQuestion']);
 Route::get('/Challenge/web', [ChallengeController::class, 'WebQuestion']);
-Route::get('/Challenge', function() {
-    return view('Challenge');
-});
+Route::get('/Challenge/web', [ChallengeController::class, 'index']);
 
 Route::post('/Auth', [AuthController::class, 'update']);
 

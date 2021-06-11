@@ -1,6 +1,7 @@
 @extends('layout.default')
 
 @section('main')
+<h1>rev</h1>
 @foreach($problem as $row)
 <div id="ex1" class="modal">
   <h1>{{ $row->p_name }}</h1>
