@@ -11,5 +11,5 @@ Class Problem extends Authenticatable
     protected $table = 'problem';
     protected $primaryKey = 'idx';
 
-    protected $fillable = ['p_name', 'track', 'point', 'flag'];
+    protected $fillable = ['p_name', 'track', 'point', 'flag', 'p_url', 'file'];
 }

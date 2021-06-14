@@ -17,7 +17,8 @@ class CreateProblemTable extends Migration
             $table -> bigIncrements('idx');
             $table -> String('p_name');
             $table -> String('track');
-            $table -> String('file') -> nullable();
+            $table -> String('file_name') -> nullable();
+            $table -> String('file_path') -> nullable();
             $table -> String('p_url') -> nullable();
             $table -> String('point');
             $table -> String('flag');

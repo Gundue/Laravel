@@ -1,7 +1,7 @@
 @extends('layout.default')
 
 @section('main')
-    <form action="/Challenge/upload" id="" method="post" enctype="multipart/form-data">
+    <form action="/Challenge/upload" method="post" enctype="multipart/form-data">
         @csrf
         @include('layout.input', [
             'field' => 'p_name',

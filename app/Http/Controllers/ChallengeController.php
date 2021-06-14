@@ -17,7 +17,26 @@ Class ChallengeController extends Controller
 
     public function index()
     {
-        return view('index');
+        // $admin = User::where('user_level', '1024') ->first();
+        // if($admin){
+        // return view('index');
+        // } else {
+        //     return view('Challenge');
+        // }
+        return view('Auth');
+    }
+
+    public function upload(Request $request) {
+        $problems = Problem::create([
+            'p_name' => $request->input('p_name', 'p_name'),
+            'track' => $request->input('track', 'track'),
+            'file' => $request->file('file')->store('images', 'public'),
+            'p_url' => $request->input('p_url', 'p_url'),
+            'point' => $request->input('point', 'point'),
+            'flag' => $request->input('flag', 'flag')
+        ]);
+
+        return redirect() -> route('main');
     }
 
     public function PwnQuestion()

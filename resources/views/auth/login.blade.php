@@ -65,6 +65,9 @@
                             </div>
                         </div>
                     </form>
+                    <div class="w-1/3 mx-auto mt-32 border">
+                        <a href="http://localhost/auth/login/google"><img src="images/googlebtn.png" alt=""></a>
+                    </div>
                 </div>
             </div>
         </div>
